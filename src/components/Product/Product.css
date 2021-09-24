@@ -1,0 +1,44 @@
+h3 {
+    margin: 3%;
+    font-size: 90%;
+}
+
+.container-producto-text {
+    margin: 1%;
+}
+
+.container-producto {
+    justify-content: center;
+    float: left;
+    margin: 15px;
+    padding: 10px 20px;
+    box-shadow: 1px 1px 6px #00000042;
+    display: flex;
+    flex-direction: column;
+    width: 14.8%;
+}
+
+.container-producto img {
+    width: 100%;
+}
+
+.MuiCardContent-root.css-46bh2p-MuiCardContent-root {
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+}
+
+.MuiCardActions-root.MuiCardActions-spacing.css-1t6e9jv-MuiCardActions-root {
+    justify-content: center;
+}
+
+button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.MuiButtonGroup-grouped.MuiButtonGroup-groupedHorizontal.MuiButtonGroup-groupedContained.MuiButtonGroup-groupedContainedHorizontal.MuiButtonGroup-groupedContainedPrimary.css-sghohy-MuiButtonBase-root-MuiButton-root {
+    border-color: transparent;
+}
+
+button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButtonBase-root.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+    color: gray;
+    border: solid 1.5px beige;
+    margin: 5%;
+    font-size: 70%;
+}
