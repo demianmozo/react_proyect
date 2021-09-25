@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 
 
-function ItemCount({ stock, initial }) {
+function ItemCount({ stock, initial, title}) {
     const [count, setCount] = useState(0)
     
     const add = () => {
@@ -22,6 +22,13 @@ function ItemCount({ stock, initial }) {
         setCount(count - 1)
         }
     }
+    const onAdd = () => {
+        if (count > 0) {
+        console.log('Agregaste ', title, 'al carrito')
+    } else {
+        
+    }
+    }
     
     return (
         <div>
@@ -32,7 +39,7 @@ function ItemCount({ stock, initial }) {
             </Typography>
             <Button onClick={add}>+</Button>
             </ButtonGroup>
-            <Button variant="outlined">Agregar al carrito</Button>
+            <Button onClick={onAdd} variant="outlined">Agregar al carrito</Button>
         </div>
     )
 }

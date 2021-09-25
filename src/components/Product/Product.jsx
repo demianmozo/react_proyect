@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 
 //functional component
 
-function Producto({title, price}) {
+function Producto({ title, price, stock }) {
   return (
     <div className="container-producto">
       <Card sx={{ maxWidth: 345 }}>
@@ -30,7 +30,7 @@ function Producto({title, price}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <ItemCount stock='5' initial='0' />
+          <ItemCount initial={0} stock={stock} title={title} />
       </CardActions>
     </Card>
     </div>
