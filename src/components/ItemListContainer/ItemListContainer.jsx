@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 //components
 import Producto from "../Product/Product";
+import './ItemListContainer.css'
+//external components
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 
 function ItemListContainer() {
     const [products, setProduct] = useState([])
@@ -13,6 +17,7 @@ function ItemListContainer() {
                     title: 'Tarta frutilla',
                     price: 800,
                     description: 'deliciosa tarta de frutilla, con crema batida y dulce de leche',
+                    img: 'TartaFrutilla.jpeg',
                     stock: 10
                 },
                 {
@@ -20,6 +25,7 @@ function ItemListContainer() {
                     title: 'Brownie',
                     price: 600,
                     description: 'brownie denso y humedo',
+                    img: 'Brownie.jpeg',
                     stock: 8
                 },
                 {
@@ -27,20 +33,23 @@ function ItemListContainer() {
                     title: 'Lemon pie',
                     price: 800,
                     description: 'Hecho con limones organicos',
+                    img: 'lemonPie.jpeg',
                     stock: 5
                 },
                 {
                     id: '4',
-                    title: 'Tarta valeria',
+                    title: 'Tarta de Frutos Rojos',
                     price: 800,
-                    description: 'deliciosa tarta de dulce de leche cubierta con chocolate',
+                    description: 'Una deliciosa tarta con base de masa sableé de chocolate, dulce de leche y frutos rojos',
+                    img: 'TartadeFR.jpeg',
                     stock: 13
                 },
                 {
                     id: '5',
-                    title: 'Muffins de limon y amapola',
+                    title: 'Cake Pops',
                     price: 1100,
-                    description: 'docena de muffins livianos con textura esponjosa y baño de limon',
+                    description: 'Con relleno de bizcochuelo y DDL, no podes perdertelos',
+                    img: 'cakepops.jpeg',
                     stock: 5
                 },
                 {
@@ -48,20 +57,23 @@ function ItemListContainer() {
                     title: 'Budín de mandarina',
                     price: 400,
                     description: 'Sabroso budin de mandarina con un dulce glaseado',
+                    img: 'budin.jpeg',
                     stock: 10
                 },
                 {
                     id: '7',
-                    title: 'Budín de banana y dulce de leche',
+                    title: 'Corazones de chocolate rellenos',
                     price: 800,
-                    description: 'Budin de textura humeda y relleno de dulce de leche',
+                    description: 'Caja de 3 corazones de chocolate marmolados, rellenos con DDL o Nuttela',
+                    img: 'corazones.jpeg',
                     stock: 4
                 },
                 {
                     id: '8',
-                    title: 'Tarta de coco',
+                    title: 'Box Fairy',
                     price: 1000,
-                    description: 'Tarta de masa suave, rellena de dulce de leche y cubierta de coco rallado',
+                    description: 'Contiene 2 cakepops, 1 torta oreo mediana, 1 shot de oreotorta, jugo de naranja, corazones rellenos y una porcion grande de brownie',
+                    img: 'Boxfairy.jpeg',
                     stock: 10
                 }
             ]
@@ -77,10 +89,15 @@ function ItemListContainer() {
     
     return (
         <div>
-            {products.map((product) => {
-                return (<Producto key={product.id} title={product.title} price={product.price} stock={product.stock} />)
+            {products.length !== 0 ? (
+                products.map((product) => {
+                    return (<Producto key={product.id} title={product.title} price={product.price} stock={product.stock} img={product.img} alt={product.description} />)
                 })
-            }
+            ) : (
+                <Box sx={{ width: '100%' }}>
+                    <LinearProgress />
+                </Box>
+            )}
         </div>
         )
 }

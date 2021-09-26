@@ -9,17 +9,6 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 function App() {
-const promesa1 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    const respuesta = 'Data productos'
-    resolve(respuesta)
-    }, 5000)
-  })
-
-  promesa1.then((respuesta) => {
-    console.log('respuesta de promesa', respuesta)
-  })
-
   return (
     <div className="App">
       <NavBar />
