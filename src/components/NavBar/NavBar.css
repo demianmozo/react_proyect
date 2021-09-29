@@ -21,3 +21,15 @@ header > div {
     float: right;
 }
 
+span.MuiLinearProgress-bar.MuiLinearProgress-barColorPrimary.MuiLinearProgress-bar1Indeterminate.css-5ir5xx-MuiLinearProgress-bar1 {
+    background: burlywood;
+}
+
+span.MuiLinearProgress-root.MuiLinearProgress-colorPrimary.MuiLinearProgress-indeterminate.css-eglki6-MuiLinearProgress-root {
+    background: bisque;
+}
+
+span.MuiLinearProgress-bar.MuiLinearProgress-barColorPrimary.MuiLinearProgress-bar2Indeterminate.css-1r8wrcl-MuiLinearProgress-bar2 {
+    background: burlywood;
+}
+

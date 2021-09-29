@@ -75,6 +75,14 @@ function ItemListContainer() {
                     description: 'Contiene 2 cakepops, 1 torta oreo mediana, 1 shot de oreotorta, jugo de naranja, corazones rellenos y una porcion grande de brownie',
                     img: 'Boxfairy.jpeg',
                     stock: 10
+                },
+                {
+                    id: '9',
+                    title: 'Tarta frutilla',
+                    price: 800,
+                    description: 'deliciosa tarta de frutilla, con crema batida y dulce de leche',
+                    img: 'TartaFrutilla.jpeg',
+                    stock: 10
                 }
             ]
             resolve(mockProducts)
@@ -88,18 +96,13 @@ function ItemListContainer() {
     },[])
     
     return (
-        <div>
-            {products.length !== 0 ? (
-                products.map((product) => {
-                    return (<Producto key={product.id} title={product.title} price={product.price} stock={product.stock} img={product.img} alt={product.description} />)
-                })
-            ) : (
-                <Box sx={{ width: '100%' }}>
-                    <LinearProgress />
-                </Box>
-            )}
+        <div className="container">
+            {products.map((product) => {
+                return (<Producto key={product.id} title={product.title} price={product.price} stock={product.stock} img={product.img} alt={product.description} />)
+            })}
         </div>
         )
 }
 
 export default ItemListContainer;
+

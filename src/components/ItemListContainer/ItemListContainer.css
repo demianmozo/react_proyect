@@ -1,11 +1,30 @@
-span.MuiLinearProgress-bar.MuiLinearProgress-barColorPrimary.MuiLinearProgress-bar1Indeterminate.css-5ir5xx-MuiLinearProgress-bar1 {
-    background: burlywood;
+*, *::before, *:after{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
 }
 
-span.MuiLinearProgress-root.MuiLinearProgress-colorPrimary.MuiLinearProgress-indeterminate.css-eglki6-MuiLinearProgress-root {
-    background: bisque;
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 2fr);
+    width: 940px;
+    gap: 15px;
+    margin: auto;
+    justify-items: center;
+    align-items:center;
 }
 
-span.MuiLinearProgress-bar.MuiLinearProgress-barColorPrimary.MuiLinearProgress-bar2Indeterminate.css-1r8wrcl-MuiLinearProgress-bar2 {
-    background: burlywood;
+
+
+@media screen and (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width:852px) {
+    .container {
+        gap: 5px;
+    }
 }
