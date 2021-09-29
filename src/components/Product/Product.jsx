@@ -2,7 +2,7 @@ import './Product.css';
 //components
 import React from "react";
 import ItemCount from '../ItemCount/ItemCount';
-import Button from '@mui/material/Button';
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 
 //functional component
 
@@ -11,7 +11,7 @@ function Producto({ title, price, stock, img, alt }) {
       <div className="card">
         <div className="card-header">
         <img src={`./assets/products/${img}`} alt={alt} />
-        <Button variant="outlined">Ver más</Button>
+        <ItemDetailContainer />
         </div>
         <div className="card-data scroll">
         <h3>{title}</h3>
