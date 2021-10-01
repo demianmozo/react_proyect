@@ -1,7 +1,7 @@
 
 .card {
-    height: 300px;
-    width: 300px;
+    height: 260px;
+    width: 270px;
     overflow: hidden;
     margin: auto;
     padding: 10px 30px;
@@ -14,8 +14,8 @@
 }
 
 .card:hover {
-    height: 410px;
-    width: 300px;
+    height: 400px;
+    width: 270px;
     border-radius: 5%;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 5.);
 }
@@ -28,23 +28,22 @@
     position: relative;
     border-radius: 10%;
     display: block;
-    height: 200px;
-    width: 200px;
+    height: 170px;
+    width: 170px;
     object-fit: cover;
-    margin: 20px auto;
+    margin: 15px auto;
     transition: all 0.3s ease;
 }
 
 .card-header button {
     position: absolute;
-    bottom:4em;
-    right:4em;
-    padding:1em 1.5em;
+    right:4.56em;
+    top:15em;
+    padding: em 1.5em;
     color: gray;
     border: solid 1.5px beige;
     font-size: 70%;
     margin: 24px;
-    background: gainsboro;
 }
 
 .card-header:before, .card-header:after {
@@ -100,8 +99,12 @@
     color: rgb(95, 94, 94);
 }
 
+.card-data h3{
+    padding-top:27px;
+}
+
 .card-data p{
-    margin: 7px;
+    margin: 5px;
 }
 
 button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.MuiButtonGroup-grouped.MuiButtonGroup-groupedHorizontal.MuiButtonGroup-groupedContained.MuiButtonGroup-groupedContainedHorizontal.MuiButtonGroup-groupedContainedPrimary.css-sghohy-MuiButtonBase-root-MuiButton-root {

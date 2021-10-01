@@ -10,7 +10,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 function App() {
-  const UrlPokeapi = 'https://pokeapi.co/api/v2/pokemon/'
+  /* const UrlPokeapi = 'https://pokeapi.co/api/v2/pokemon/'
 
   useEffect(() => {
     fetch(UrlPokeapi, {
@@ -31,7 +31,7 @@ function App() {
       console.log(data)
     })
   }, [])
-
+ */
   return (
     <div className="App">
       <NavBar />
