@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import Producto from "../Product/Product";
 import './ItemListContainer.css'
 //external components
-import Box from '@mui/material/Box';
-import LinearProgress from '@mui/material/LinearProgress';
 
 function ItemListContainer() {
     const [products, setProduct] = useState([])

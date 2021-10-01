@@ -9,13 +9,3 @@ body {
     font-family:'Roboto', sans-serif;
 }
 
-.app-body {
-    padding: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-}
-
-
