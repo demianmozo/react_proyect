@@ -15,7 +15,11 @@
     align-items:center;
 }
 
-
+span.MuiCircularProgress-root.MuiCircularProgress-indeterminate.MuiCircularProgress-colorPrimary.css-18lrjg1-MuiCircularProgress-root {
+    color: tan;
+    width: 3em;
+    height: 3em;
+}
 
 @media screen and (max-width: 600px) {
     .container {

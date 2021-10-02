@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import './ItemDetailContainer.css'
 //components
 import ItemDetail from "../ItemDetail/ItemDetail";
 //external components
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 
 function ItemDetailContainer() {
-    const { itemId } = useParams()
+    const { itemTitle } = useParams()
 
-    const [Results, setResults] = useState([])
+    const [result, setResult] = useState([])
 
     const getItems = new Promise((resolve) => {
         setTimeout(() => {
@@ -99,27 +102,27 @@ function ItemDetailContainer() {
     })
 
     useEffect(() => {
-        getItems.then(Results =>
-            setResults(
-                Results.find(element => element.title === itemId)
+        getItems.then(result =>
+            setResult(
+                result.find(element => element.title === itemTitle)
             ))
     }, [])
     
-    /* const result = Items.find(({ title }) => title === itemId);
- */
     return (
-        < div >
-        { console.log('tu producto es ', Results.title) }
-        < ItemDetail title = { Results.title } price = { Results.price } img = { Results.img } stock = { Results.stock } desc = { Results.description } />
-        </div >
+        <>
+            {result.length !== 0 ? (
+                <div>
+                    <p><Link to='/'>Home</Link> {">"} <Link to='/'>Productos</Link> {">"} {itemTitle}</p>
+                    < ItemDetail title={result.title} price={result.price} img={result.img} stock={result.stock} desc={result.description} />
+                </div>
+            ) : (
+                <Box sx={{ width: '100%' }}>
+                    <LinearProgress />
+                </Box>
+            )
+                }
+        </>
         )
 }
 
 export default ItemDetailContainer;
-/* 
-useEffect(() => {
-        getItems.then((res) => {
-            setItems(res)
-        })
-    }, [])
-     */

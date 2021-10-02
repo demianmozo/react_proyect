@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 
 function ItemDetail({ title, price, stock, img, desc }) {
   return (
+    <div>
       <div className="item-detail">
         <div className="item-detail-header">
           <div className="item-detail-carousel">
@@ -31,6 +32,14 @@ function ItemDetail({ title, price, stock, img, desc }) {
           <Link to={'/'}><Button color='inherit' variant="outlined">Volver</Button></Link>
         </div>
       </div>
+      <div className="item-comment-section">
+        <h3>Comentarios y reseñas</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, rerum.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, rerum.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, rerum.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, rerum.</p>
+      </div>
+    </div>
   );
 }
 

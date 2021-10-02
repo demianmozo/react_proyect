@@ -54,18 +54,9 @@
     line-height: 25px;
 }
 
-.card-data {
-    color: rgb(95, 94, 94);
+.item-comment-section {
+    margin: 1em;
 }
-
-.card-data h3 {
-    padding-top: 27px;
-}
-
-.card-data p {
-    margin: 5px;
-}
-
 
 button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.MuiButtonGroup-grouped.MuiButtonGroup-groupedHorizontal.MuiButtonGroup-groupedContained.MuiButtonGroup-groupedContainedHorizontal.MuiButtonGroup-groupedContainedPrimary.css-sghohy-MuiButtonBase-root-MuiButton-root {
     border-color: transparent;

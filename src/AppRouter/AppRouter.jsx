@@ -13,9 +13,9 @@ function AppRouter() {
         <BrowserRouter>
             <NavBar />
             <Switch>
-                <Route path="/item/:itemId" component={ItemDetailPage} />
-                <Route path="/contacto" component={ContactPage} />
+                <Route path="/item/:itemTitle" component={ItemDetailPage} />
                 <Route path="/category/:categoryId" component={ItemListContainer} />
+                <Route path="/contacto" component={ContactPage} />
                 <Route exact path="/" component={HomePage} />
                 <Route path="*" component={NotFoundPage} />
             </Switch>
