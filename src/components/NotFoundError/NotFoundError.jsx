@@ -1,4 +1,5 @@
 import './NotFoundError.css'
+import {Link} from 'react-router-dom'
 
 function NotFoundError(){
     return (
@@ -8,7 +9,7 @@ function NotFoundError(){
 				<h1>Oops!</h1>
 				<h2>404 - Esta página no se encuentra disponible.</h2>
 			</div>
-			<a>Pagina principal</a>
+			<Link to='/'>Pagina principal</Link>
 		</div>
 	</div>
     )

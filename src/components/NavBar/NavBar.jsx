@@ -1,5 +1,7 @@
-import logo from '../../assets/logosas.png';
+import { Link } from 'react-router-dom';
 import './NavBar.css';
+//components
+import logo from '../../assets/logosas.png';
 import CartWidget from '../CartWidget/CartWidget'
 //external components
 import AppBar from '@material-ui/core/AppBar';
@@ -14,18 +16,18 @@ function NavBar() {
         <Toolbar>
           <Typography variant="h6">
             <div className="container-logo">
-                <img src={logo} alt={"main logo"}/>
+                <Link to='/'><img src={logo} alt={"main logo"}/></Link>
             </div>
         </Typography>
         <div className='container-navbar'>
           <ul className="navbar-list">
-            <li><Button color="inherit">Inicio</Button></li>
-            <li><Button color="inherit">Productos</Button></li>
-            <li><Button color="inherit">Contacto</Button></li>
-            <li><Button color="inherit">FAQ</Button></li>
+            <li><Link to='/'><Button color="inherit">Inicio</Button></Link></li>
+            <li><Link><Button color="inherit">Productos</Button></Link></li>
+            <li><Link to='/contacto'><Button color="inherit">Contacto</Button></Link></li>
+            <li><Link><Button color="inherit">FAQ</Button></Link></li>
         </ul>
         </div>
-        <CartWidget />
+        <Link><CartWidget /></Link>
         </Toolbar>
       </AppBar>
     </div>
