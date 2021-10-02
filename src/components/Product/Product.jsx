@@ -8,12 +8,12 @@ import Button from '@material-ui/core/Button';
 
 //functional component
 
-function Producto({ key, title, price, stock, img, alt }) {
+function Producto({ title, price, stock, img, alt }) {
   return (
       <div className="card">
         <div className="card-header">
         <img src={`./assets/products/${img}`} alt={alt} />
-        <Link to={`/item/${key}`}><Button>Ver más</Button></Link>
+        <Link to={`/item/${title}`}><Button>Ver más</Button></Link>
         </div>
         <div className="card-data scroll">
         <h3>{title}</h3>

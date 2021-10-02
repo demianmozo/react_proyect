@@ -11,7 +11,7 @@ function ItemDetail({ title, price, stock, img, desc }) {
   return (
       <div>
         <div>
-          <img src={`./assets/products/${img}`} alt={desc} />
+          <img src={`../assets/products/${img}`} alt={desc} />
         </div>
         <div>
         <h3>{title}</h3>
