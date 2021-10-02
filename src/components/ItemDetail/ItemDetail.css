@@ -1,3 +1,79 @@
-.container{
-    background: white;
+.item-detail {
+    width: 90vw;
+    overflow: hidden;
+    margin: auto;
+    padding: 10px 30px;
+    border-radius: 1%;
+    border: 1px solid #fff;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 3.);
+    text-align: center;
+    background: linear-gradient(-135deg, rgb(216, 200, 129), rgb(255, 181, 197));
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+
+.item-detail-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.item-detail-header-img img{
+    position: relative;
+    border-radius: 10%;
+    display: block;
+    width: 40vw;
+    object-fit: cover;
+    margin: 10px;
+}
+
+.item-detail-carousel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.item-detail-carousel img {
+    position: relative;
+    border-radius: 10%;
+    display: block;
+    width: 10vw;
+    object-fit: cover;
+}
+
+.item-detail-container{
+    padding: 7em;
+}
+
+.item-detail-container h3{
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px;
+    line-height: 25px;
+}
+
+.card-data {
+    color: rgb(95, 94, 94);
+}
+
+.card-data h3 {
+    padding-top: 27px;
+}
+
+.card-data p {
+    margin: 5px;
+}
+
+
+button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.MuiButtonGroup-grouped.MuiButtonGroup-groupedHorizontal.MuiButtonGroup-groupedContained.MuiButtonGroup-groupedContainedHorizontal.MuiButtonGroup-groupedContainedPrimary.css-sghohy-MuiButtonBase-root-MuiButton-root {
+    border-color: transparent;
+}
+
+button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButtonBase-root.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+    color: gray;
+    border: solid 1.5px beige;
+    margin: 5%;
+    font-size: 70%;
 }
