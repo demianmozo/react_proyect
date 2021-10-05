@@ -1,6 +1,6 @@
 import './ItemDetail.css'
 //components
-import React from "react";
+import React, { useState } from "react";
 import ItemCount from '../ItemCount/ItemCount';
 //external components
 import Button from '@material-ui/core/Button';
@@ -9,6 +9,23 @@ import { Link } from 'react-router-dom';
 //functional component
 
 function ItemDetail({ title, price, stock, img, desc }) {
+  const [count, setCount] = useState(0)
+  
+  const onAdd = () => {
+    if (count >= stock) {
+      setCount(count)
+    } else {
+      setCount(count + 1)
+    }
+  }
+  const onLess = () => {
+    if (count <= 0) {
+      setCount(count)
+    } else {
+      setCount(count - 1)
+    }
+  }
+
   return (
     <div>
       <div className="item-detail">
@@ -28,7 +45,7 @@ function ItemDetail({ title, price, stock, img, desc }) {
           <p>{desc}</p>
           <p><b>${price}</b></p>
           <p>Quedan {stock} unidades</p>
-          <ItemCount initial={1} stock={stock} title={title} />
+          <ItemCount onAdd={onAdd} onLess={onLess} count={count} title={title} />
           <Link to={'/'}><Button color='inherit' variant="outlined">Volver</Button></Link>
         </div>
       </div>

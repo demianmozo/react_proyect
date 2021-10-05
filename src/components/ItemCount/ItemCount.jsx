@@ -3,43 +3,27 @@ import React, { useState } from "react";
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
+import { Link } from "react-router-dom";
 
 
-function ItemCount({ stock, initial, title}) {
-    const [count, setCount] = useState(0)
+function ItemCount({ onAdd, onLess, count, title}) {
     
-    const add = () => {
-        if (count >= stock) {
-        setCount(count)
-        } else {
-        setCount(count + 1)
-        }
-    }
-    const substract = () => {
-        if (count <= initial) {
-        setCount(count)
-        } else {
-        setCount(count - 1)
-        }
-    }
-    const onAdd = () => {
+    const addToCart = () => {
         if (count > 0) {
         console.log('Agregaste ', title, 'al carrito')
-    } else {
-        
     }
-    }
+}
     
     return (
         <div>
           <ButtonGroup variant="contained" aria-label="outlined primary button group">
-            <Button onClick={substract}>-</Button>
+            <Button onClick={onLess}>-</Button>
             <Typography variant="body2" color="text.secondary">
              <p><b>{count}</b></p>
             </Typography>
-            <Button onClick={add}>+</Button>
+            <Button onClick={onAdd}>+</Button>
             </ButtonGroup>
-            <Button onClick={onAdd} variant="outlined">Agregar al carrito</Button>
+            <Link to={'/cart'}><Button onClick={addToCart} variant="outlined">Agregar al carrito</Button></Link>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import './Product.css';
 import {Link} from 'react-router-dom'
 //components
-import React from "react";
+import React, { useState } from "react";
 import ItemCount from '../ItemCount/ItemCount';
 //external components
 import Button from '@material-ui/core/Button';
@@ -9,6 +9,24 @@ import Button from '@material-ui/core/Button';
 //functional component
 
 function Producto({ title, price, stock, img, alt }) {
+  const [count, setCount] = useState(0)
+
+  const onAdd = () => {
+    if (count >= stock) {
+      setCount(count)
+    } else {
+      setCount(count + 1)
+    }
+  }
+  const onLess = () => {
+    if (count <= 0) {
+      setCount(count)
+    } else {
+      setCount(count - 1)
+    }
+  }
+
+
   return (
       <div className="card">
         <div className="card-header">
@@ -18,7 +36,7 @@ function Producto({ title, price, stock, img, alt }) {
         <div className="card-data scroll">
         <h3>{title}</h3>
           <p className='card-data scroll'><b>${price}</b></p>
-          <ItemCount initial={0} stock={stock} title={title} />
+        <ItemCount onAdd={onAdd} onLess={onLess} count={count} title={title} />
         </div>
       </div>
   );

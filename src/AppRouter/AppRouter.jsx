@@ -15,6 +15,7 @@ function AppRouter() {
             <Switch>
                 <Route path="/item/:itemTitle" component={ItemDetailPage} />
                 <Route path="/category/:categoryId" component={ItemListContainer} />
+                <Route path="/cart" />
                 <Route path="/contacto" component={ContactPage} />
                 <Route exact path="/" component={HomePage} />
                 <Route path="*" component={NotFoundPage} />
