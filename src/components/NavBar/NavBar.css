@@ -5,13 +5,13 @@
 
 .container-logo img {
     width: 100%;
-    background: beige;
+    background: rgb(252, 235, 205);
     margin:10%;
 }
 
 header > div {
     justify-content: space-between;
-        background: beige;
+        background: rgb(252, 235, 205);
         color: gray;
 }
 
@@ -33,3 +33,11 @@ span.MuiLinearProgress-bar.MuiLinearProgress-barColorPrimary.MuiLinearProgress-b
     background: burlywood;
 }
 
+button#basic-button {
+    color: inherit;
+    border-color: currentColor;
+}
+
+ul.MuiList-root.MuiList-padding.MuiMenu-list.css-6hp17o-MuiList-root-MuiMenu-list {
+    background: rgb(255, 249, 237);
+}

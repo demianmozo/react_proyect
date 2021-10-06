@@ -41,7 +41,7 @@
     top:13.7em;
     padding: em 1.5em;
     color: gray;
-    border: solid 1.5px beige;
+    border: solid 1.5px rgb(252, 235, 205);
     font-size: 70%;
     margin: 24px;
 }
@@ -113,7 +113,7 @@ button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-s
 
 button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButtonBase-root.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
     color: gray;
-    border: solid 1.5px beige;
+    border: solid 1.5px rgb(252, 235, 205);
     margin: 5%;
     font-size: 70%;
 }
