@@ -21,6 +21,11 @@ header > div {
     float: right;
 }
 
+.cart-container {
+    display: flex;
+    flex-direction: row;
+}
+
 span.MuiLinearProgress-bar.MuiLinearProgress-barColorPrimary.MuiLinearProgress-bar1Indeterminate.css-5ir5xx-MuiLinearProgress-bar1 {
     background: burlywood;
 }

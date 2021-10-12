@@ -1,10 +1,13 @@
 import './Product.css';
 import {Link} from 'react-router-dom'
 //components
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ItemCount from '../ItemCount/ItemCount';
 //external components
 import Button from '@material-ui/core/Button';
+
+//context 
+import CartContext from '../../context/CartContext'
 
 //functional component
 
@@ -25,6 +28,8 @@ function Producto({ title, price, stock, img, alt }) {
       setCount(count - 1)
     }
   }
+
+  const {addItem, removeItem, removeOneItem} = useContext(CartContext)
 
 
   return (

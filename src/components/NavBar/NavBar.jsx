@@ -13,6 +13,10 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Switch from '@mui/material/Switch';
+
+//context
+import ThemeContext from '../../context/ThemeContext';
 
 
 function NavBar() {
@@ -25,6 +29,9 @@ function NavBar() {
     setAnchorEl(null);
   };
 
+  const { theme, handleTheme} = useContext(ThemeContext)
+  
+  const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
   return (
     <div>
@@ -61,10 +68,13 @@ function NavBar() {
                   <MenuItem onClick={handleClose}>Boxes</MenuItem>
                 </Menu></li>
             <li><Link to='/contacto'><Button color="inherit">Contacto</Button></Link></li>
-            <li><Link><Button color="inherit">FAQ</Button></Link></li>
+            <li><Link to='/FAQ'><Button color="inherit">FAQ</Button></Link></li>
         </ul>
         </div>
-        <Link><CartWidget /></Link>
+        <div className='cart-container'>
+          <Link><CartWidget /></Link>
+            <Switch onChange={handleTheme}  />
+        </div>
         </Toolbar>
       </AppBar>
     </div>

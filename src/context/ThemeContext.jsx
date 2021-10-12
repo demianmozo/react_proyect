@@ -4,14 +4,19 @@ const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
 
-    const  [theme, setTheme] = useState('dark')
+    const [theme, setTheme] = useState('dark')
+    
+    const handleTheme = (e) => {
+        console.log('funcion', e)
+    }
     
     const data = {
-        theme
+        theme,
+        handleTheme
     } 
 
     return (
-        <ThemeContext.Provider value={{data}}>
+        <ThemeContext.Provider value={data}>
             {children}
         </ThemeContext.Provider>
     )
