@@ -6,11 +6,12 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import { Link } from "react-router-dom";
 
 
-function ItemCount({ onAdd, onLess, count, title}) {
+function ItemCount({ onAdd, onAddToCart, onLess, count, title}) {
     
     const addToCart = () => {
         if (count > 0) {
-        console.log('Agregaste ', title, 'al carrito')
+            console.log('Agregaste ', title, 'al carrito')
+            onAddToCart()
     }
 }
     
@@ -23,7 +24,7 @@ function ItemCount({ onAdd, onLess, count, title}) {
             </Typography>
             <Button onClick={onAdd}>+</Button>
             </ButtonGroup>
-            <Link to={'/cart'}><Button onClick={addToCart} variant="outlined">Agregar al carrito</Button></Link>
+            <Button onClick={addToCart} variant="outlined">Agregar al carrito</Button>
         </div>
     )
 }

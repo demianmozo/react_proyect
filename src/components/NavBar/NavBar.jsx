@@ -72,7 +72,7 @@ function NavBar() {
         </ul>
         </div>
         <div className='cart-container'>
-          <Link><CartWidget /></Link>
+          <Link to='/cart'><CartWidget /></Link>
             <Switch onChange={handleTheme}  />
         </div>
         </Toolbar>

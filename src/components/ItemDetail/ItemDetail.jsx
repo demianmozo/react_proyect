@@ -1,16 +1,23 @@
 import './ItemDetail.css'
 //components
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ItemCount from '../ItemCount/ItemCount';
 //external components
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 
-//functional component
+//context 
+import CartContext from '../../context/CartContext'
 
-function ItemDetail({ title, price, stock, img, desc }) {
+
+function ItemDetail({ item, title, price, stock, img, desc }) {
+
+  const { addItem, removeItem, removeOneItem } = useContext(CartContext)
+
+  const handleOnAdd = count => addItem(item, count)
+
   const [count, setCount] = useState(0)
-  
+
   const onAdd = () => {
     if (count >= stock) {
       setCount(count)
@@ -37,16 +44,18 @@ function ItemDetail({ title, price, stock, img, desc }) {
             <img src={`../assets/products/${img}`} alt={desc} />
           </div>
           <div className='item-detail-header-img'>
-              <img src={`../assets/products/${img}`} alt={desc} />
-            </div>
+            <img src={`../assets/products/${img}`} alt={desc} />
           </div>
+        </div>
         <div className='item-detail-container'>
           <h3>{title}</h3>
           <p>{desc}</p>
           <p><b>${price}</b></p>
           <p>Quedan {stock} unidades</p>
-          <ItemCount onAdd={onAdd} onLess={onLess} count={count} title={title} />
-          <Link to={'/'}><Button color='inherit' variant="outlined">Volver</Button></Link>
+          <ItemCount onAdd={onAdd} onLess={onLess} onAddToCart={handleOnAdd} count={count} title={title} />
+          <button onClick={() => removeItem(item)}>Quitar del carrito</button>
+          <button onClick={() => removeOneItem(item)}>Quitar 1</button>
+          <Button color='inherit' variant="outlined">Volver</Button>
         </div>
       </div>
       <div className="item-comment-section">

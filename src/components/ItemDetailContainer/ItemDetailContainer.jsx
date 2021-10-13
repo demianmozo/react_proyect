@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import './ItemDetailContainer.css'
 //components
 import ItemDetail from "../ItemDetail/ItemDetail";
+import Cart from "../Cart/Cart";
 //external components
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
@@ -111,9 +112,12 @@ function ItemDetailContainer() {
     return (
         <>
             {result.length !== 0 ? (
-                <div>
+                <div className='detail-container'>
+                    <div>
                     <p><Link to='/'>Home</Link> {">"} <Link to='/'>Productos</Link> {">"} {itemTitle}</p>
-                    < ItemDetail title={result.title} price={result.price} img={result.img} stock={result.stock} desc={result.description} />
+                    < ItemDetail item={result} title={result.title} price={result.price} img={result.img} stock={result.stock} desc={result.description} />
+                    </div>
+                    <Cart />
                 </div>
             ) : (
                 <Box sx={{ width: '100%' }}>

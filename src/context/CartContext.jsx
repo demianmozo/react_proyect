@@ -51,8 +51,80 @@ const CartContextProvider = ({ children }) => {
         return cartItems && cartItems.some(element => element.item.id === item.id)
     }
 
+    const removeOneItem = item => {
+        if (isInCart(item)) {
+            let cartElement = cartItems.find(element => element.item.id === item.id)
+            
+            if (cartElement.count === 1) {
+                removeItem(item)
+            } else {
+                let cart = cartItems
+
+                cart.map(element => {
+                    if (element.item.id === item.id) {
+                        element.count = element.count - 1
+                    }
+                    return element
+                })
+                setCartItems([ ... cart])
+            }
+        }
+    }
+
+    const handleTotalPriceByItem = () => {
+        let newCartItems = cartItems
+
+        return newCartItems.map(element => {
+            return {
+                ...element,
+                price: element.item.price * element.count
+            }
+        })
+    }
+
+    const handleTotal = () => {
+        const initialValue = 0
+        return (
+            cartItems &&
+            cartItems.reduce(
+                (accumulator, currentValue) => {
+                    return accumulator + currentValue.count
+                },
+                initialValue
+            )
+        )
+    }
+
+    const handleTotalPrice = () => {
+        const cartAux = handleTotalPriceByItem()
+
+        const initialValue = 0
+        return (
+            cartAux &&
+            cartAux.reduce(
+                (accumulator, currentValue) => {
+                    return accumulator + currentValue.price
+                },
+                initialValue
+            )
+        )
+    }
+
     return (
-       <></>
+        <CartContext.Provider
+            value={{
+                addItem,
+                removeItem,
+                clear,
+                isInCart,
+                removeOneItem,
+                cartItems,
+                total,
+                price,
+                handleTotalPriceByItem
+        }}
+        >{children}
+        </CartContext.Provider>
     )
 }
 
