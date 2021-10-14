@@ -100,7 +100,7 @@ function ItemListContainer() {
             {products.length !== 0 ? (
                 <div className="container">
                     {products.map((product) => {
-                        return (<Producto key={product.id} title={product.title} price={product.price} stock={product.stock} img={product.img} alt={product.description} />)
+                        return (<Producto item={ product } key={product.id} title={product.title} price={product.price} stock={product.stock} img={product.img} alt={product.description} />)
                     })}
                 </div>
             ) : (

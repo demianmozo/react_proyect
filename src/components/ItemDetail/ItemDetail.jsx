@@ -53,9 +53,9 @@ function ItemDetail({ item, title, price, stock, img, desc }) {
           <p><b>${price}</b></p>
           <p>Quedan {stock} unidades</p>
           <ItemCount onAdd={onAdd} onLess={onLess} onAddToCart={handleOnAdd} count={count} title={title} />
-          <button onClick={() => removeItem(item)}>Quitar del carrito</button>
-          <button onClick={() => removeOneItem(item)}>Quitar 1</button>
-          <Button color='inherit' variant="outlined">Volver</Button>
+          <Button onClick={() => removeItem(item)}>Quitar del carrito</Button>
+          <Button onClick={() => removeOneItem(item)}>Quitar 1</Button>
+          <Link to='/'><Button color='inherit' variant="outlined">Volver</Button></Link>
         </div>
       </div>
       <div className="item-comment-section">

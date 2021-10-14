@@ -1,32 +1,29 @@
 import './Cart.css';
-import React, { useContext, useState } from "react";
+import { useState } from 'react';
 
 //components
-import ItemCount from '../ItemCount/ItemCount';
-import CartDetails from '../CartDetails/CartDetails';
+import CartIcon from '../CartIcon/CartIcon';
+import CartWidget from '../CartWidget/CartWidget';
 
 //external components
 import Button from '@material-ui/core/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-//context 
-import CartContext from '../../context/CartContext'
+function Cart() {
+    const [showCart, setShowCart] = useState(false);
 
-const Cart = () => {
-    const { cartItems, total, price, clear, handleTotalPriceByItem } = useContext(CartContext)
+    const handleCart = () => {
+        !showCart ? setShowCart(true) : setShowCart(false);
+    }
+
     return (
-        <div className='cart'>
-            <div className='cart-container'>
-                <h2>🛒Carrito</h2>
-                <b>Productos: {total}</b>
-                <b>Total: ${price}</b>
-            </div>
-            <div>
-                <Button onClick={clear}>Limpiar Carrito</Button>
-                <Button onClick={handleTotalPriceByItem}>Total Carrito</Button>
-            </div>
-            <div>
-                {cartItems.map(element => <CartDetails {...element} />)}
-            </div>
+        <div className='cart-buttonNav'>
+            <Button variant='contained' onClick={handleCart}>
+                <FontAwesomeIcon icon={faShoppingCart} />
+                <p>2</p>
+            </Button>
+            <CartWidget show={showCart} close={handleCart}/>
         </div>
     )
 }

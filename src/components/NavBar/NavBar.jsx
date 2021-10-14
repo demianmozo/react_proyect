@@ -4,7 +4,8 @@ import './NavBar.css';
 
 //components
 import logo from '../../assets/logosas.png';
-import CartWidget from '../CartWidget/CartWidget'
+import CartIcon from '../CartIcon/CartIcon';
+import Cart from '../Cart/Cart';
 
 //external components
 import AppBar from '@material-ui/core/AppBar';
@@ -71,9 +72,9 @@ function NavBar() {
             <li><Link to='/FAQ'><Button color="inherit">FAQ</Button></Link></li>
         </ul>
         </div>
-        <div className='cart-container'>
-          <Link to='/cart'><CartWidget /></Link>
-            <Switch onChange={handleTheme}  />
+        <div className='btns-container'>
+          <Cart />
+          <Switch onChange={handleTheme}  />
         </div>
         </Toolbar>
       </AppBar>

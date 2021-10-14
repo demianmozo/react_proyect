@@ -1,4 +1,25 @@
-button.MuiButtonBase-root.MuiButton-root.MuiButton-contained {
-    background: rgb(252, 235, 205);
-    color: inherit;
+.cart-widget {
+    display: none;
+}
+
+.active {
+    width: 20vw;
+    overflow: hidden;
+    margin: auto;
+    border-radius: 1%;
+    border: 1px solid #fff;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 3.);
+    text-align: center;
+    background: linear-gradient(-135deg, rgb(216, 200, 129), rgb(255, 181, 197));
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    position:absolute;
+    right: 0;
+    z-index:999
+}
+
+.cart-container {
+    display: flex;
+    flex-direction: column;
 }

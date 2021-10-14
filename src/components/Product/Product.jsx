@@ -11,7 +11,11 @@ import CartContext from '../../context/CartContext'
 
 //functional component
 
-function Producto({ title, price, stock, img, alt }) {
+function Producto({item, title, price, stock, img, alt }) {
+  const { addItem } = useContext(CartContext)
+
+  const handleOnAdd = count => addItem(item, count)
+
   const [count, setCount] = useState(0)
 
   const onAdd = () => {
@@ -29,8 +33,6 @@ function Producto({ title, price, stock, img, alt }) {
     }
   }
 
-  const {addItem, removeItem, removeOneItem} = useContext(CartContext)
-
 
   return (
       <div className="card">
@@ -41,7 +43,7 @@ function Producto({ title, price, stock, img, alt }) {
         <div className="card-data scroll">
         <h3>{title}</h3>
           <p className='card-data scroll'><b>${price}</b></p>
-        <ItemCount onAdd={onAdd} onLess={onLess} count={count} title={title} />
+        <ItemCount onAdd={onAdd} onLess={onLess} onAddToCart={handleOnAdd} count={count} title={title} />
         </div>
       </div>
   );
