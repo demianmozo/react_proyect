@@ -12,11 +12,7 @@ import '@fontsource/roboto/700.css';
 import CartContext  from './context/CartContext';
 
 function App() {
-  const INITIAL_STATE = {
-  addedItems: [],
-  totalPrice: 0
-};
-  const [cart, setCart] = useState(INITIAL_STATE)
+  const [cart, setCart] = useState([])
   return (
     <div className="App">
       <CartContext.Provider value={{cart, setCart}}>

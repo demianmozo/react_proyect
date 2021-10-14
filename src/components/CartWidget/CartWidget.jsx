@@ -18,15 +18,15 @@ console.log(show)
     <div className={`cart-widget ${show ? 'active' : ''}`}>
       <div className='cart-container'>
         <h2>🛒Carrito</h2>
-        <b>Productos: {cart.title}</b>
-        <b>Total: ${cart.price}</b>
+        <b>Productos: {cart && cart.map(element => element.item.title)}</b>
+        <b>Total: ${cart && cart.map(element => element.item.price)}</b>
       </div>
       <div>
         {/* <Button onClick={clear}>Limpiar Carrito</Button>
         <Button onClick={handleTotalPriceByItem}>Total Carrito</Button> */}
       </div>
       <div>
-        {cart.addedItems.map(element => <CartDetails {...element} />)}
+        {cart && cart.map(element => <CartDetails {...element } />)}
         {console.log(cart)}
       </div>
       <Button onClick={close}>Cerrar</Button>

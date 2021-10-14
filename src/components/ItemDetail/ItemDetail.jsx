@@ -22,7 +22,7 @@ function ItemDetail({ id, item, title, price, stock, img, desc }) {
     }
   }
   const onLess = () => {
-    if (count <= 0) {
+    if (count <= 1) {
       setCount(count)
     } else {
       setCount(count - 1)
@@ -31,23 +31,29 @@ function ItemDetail({ id, item, title, price, stock, img, desc }) {
 
   const { cart, setCart } = useContext(CartContext)
 
-  const isInCart = () => {
-    return cart && cart.some(element => element.id === id)
+  const isInCart = (item) => {
+    return cart && cart.some(element => element.item.id === item.id)
   }
 
-  const addItem = () => {
-    let cartElement = { cart, count }
-    if (isInCart(id)) {
+  const addItem = (item, count) => {
+    let cartElement = { item, count }
+    console.log('cartelement', cartElement)
+
+    let cartAux = []
+
+    if (isInCart(item)) {
       console.log('Esta en el carrito')
 
-      cartElement = cart.find(element => element.id === id)
-
+      cartElement = cart.find(element => element.item.id === item.id)
+      console.log('cartelement2', cartElement)
       cartElement.count = cartElement.count + count
 
+      cartAux = [...cart]
     } else {
       console.log('No esta en el carrito')
-      setCart([...cart, { id: id, name: title, units: count, price: price, img: img }])
+      cartAux = [cartElement, ...cart]
     }
+    setCart(cartAux)
   }
 
 
@@ -70,7 +76,7 @@ function ItemDetail({ id, item, title, price, stock, img, desc }) {
           <p>{desc}</p>
           <p><b>${price}</b></p>
           <p>Quedan {stock} unidades</p>
-          <ItemCount onAdd={onAdd} onLess={onLess} onAddToCart={addItem} item={item} count={count} title={title} />
+          <ItemCount onAdd={onAdd} onLess={onLess} onAddToCart={() => addItem(item, count)} count={count} title={title} />
           {/* <Button onClick={() => removeItem(item)}>Quitar del carrito</Button>
           <Button onClick={() => removeOneItem(item)}>Quitar 1</Button> */}
           <Link to='/'><Button color='inherit' variant="outlined">Volver</Button></Link>
