@@ -10,11 +10,7 @@ import { Link } from 'react-router-dom';
 import CartContext from '../../context/CartContext'
 
 
-function ItemDetail({ item, title, price, stock, img, desc }) {
-
-  const { addItem, removeItem, removeOneItem } = useContext(CartContext)
-
-  const handleOnAdd = count => addItem(item, count)
+function ItemDetail({ id, item, title, price, stock, img, desc }) {
 
   const [count, setCount] = useState(0)
 
@@ -32,6 +28,28 @@ function ItemDetail({ item, title, price, stock, img, desc }) {
       setCount(count - 1)
     }
   }
+
+  const { cart, setCart } = useContext(CartContext)
+
+  const isInCart = () => {
+    return cart && cart.some(element => element.id === id)
+  }
+
+  const addItem = () => {
+    let cartElement = { cart, count }
+    if (isInCart(id)) {
+      console.log('Esta en el carrito')
+
+      cartElement = cart.find(element => element.id === id)
+
+      cartElement.count = cartElement.count + count
+
+    } else {
+      console.log('No esta en el carrito')
+      setCart([...cart, { id: id, name: title, units: count, price: price, img: img }])
+    }
+  }
+
 
   return (
     <div>
@@ -52,9 +70,9 @@ function ItemDetail({ item, title, price, stock, img, desc }) {
           <p>{desc}</p>
           <p><b>${price}</b></p>
           <p>Quedan {stock} unidades</p>
-          <ItemCount onAdd={onAdd} onLess={onLess} onAddToCart={handleOnAdd} count={count} title={title} />
-          <Button onClick={() => removeItem(item)}>Quitar del carrito</Button>
-          <Button onClick={() => removeOneItem(item)}>Quitar 1</Button>
+          <ItemCount onAdd={onAdd} onLess={onLess} onAddToCart={addItem} item={item} count={count} title={title} />
+          {/* <Button onClick={() => removeItem(item)}>Quitar del carrito</Button>
+          <Button onClick={() => removeOneItem(item)}>Quitar 1</Button> */}
           <Link to='/'><Button color='inherit' variant="outlined">Volver</Button></Link>
         </div>
       </div>

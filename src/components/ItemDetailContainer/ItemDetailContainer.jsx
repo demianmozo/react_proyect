@@ -115,7 +115,7 @@ function ItemDetailContainer() {
                 <div className='detail-container'>
                     <div>
                     <p><Link to='/'>Home</Link> {">"} <Link to='/'>Productos</Link> {">"} {itemTitle}</p>
-                    < ItemDetail item={result} title={result.title} price={result.price} img={result.img} stock={result.stock} desc={result.description} />
+                    < ItemDetail item={result} id={result.id} title={result.title} price={result.price} img={result.img} stock={result.stock} desc={result.description} />
                     </div>
                     <CartWidget />
                 </div>

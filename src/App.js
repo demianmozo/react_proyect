@@ -1,6 +1,6 @@
 import './App.css';
 //components
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import AppRouter from './AppRouter/AppRouter';
 //fonts
 import '@fontsource/roboto/300.css';
@@ -8,10 +8,20 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+//context
+import CartContext  from './context/CartContext';
+
 function App() {
+  const INITIAL_STATE = {
+  addedItems: [],
+  totalPrice: 0
+};
+  const [cart, setCart] = useState(INITIAL_STATE)
   return (
     <div className="App">
-      <AppRouter />
+      <CartContext.Provider value={{cart, setCart}}>
+        <AppRouter />
+      </CartContext.Provider>
     </div>
   );
 }

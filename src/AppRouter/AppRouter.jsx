@@ -10,14 +10,12 @@ import NotFoundPage from '../pages/NotFoundPage';
 import ItemListContainer from '../components/ItemListContainer/ItemListContainer';
 
 //context
-import { CartContextProvider } from '../context/CartContext';
 import { ThemeProvider } from '../context/ThemeContext';
 
 function AppRouter() {
     return (
         <BrowserRouter>
             <ThemeProvider>
-            <CartContextProvider>
                 <NavBar />
                 <Switch>
                     <Route path="/item/:itemTitle" component={ItemDetailPage} />
@@ -28,7 +26,6 @@ function AppRouter() {
                     <Route exact path="/" component={HomePage} />
                     <Route path="*" component={NotFoundPage} />
             </Switch>
-            </CartContextProvider>
             </ThemeProvider>
         </BrowserRouter>
     );
