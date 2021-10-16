@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 //context 
 import CartContext from '../../context/CartContext'
 
-
 function ItemDetail({ id, item, title, price, stock, img, desc }) {
 
   const [count, setCount] = useState(0)

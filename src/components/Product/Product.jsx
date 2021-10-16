@@ -12,10 +12,6 @@ import CartContext from '../../context/CartContext'
 //functional component
 
 function Producto({item, title, price, stock, img, alt }) {
-  const { addItem } = useContext(CartContext)
-
-  const handleOnAdd = count => addItem(item, count)
-
   const [count, setCount] = useState(0)
 
   const onAdd = () => {
@@ -26,12 +22,40 @@ function Producto({item, title, price, stock, img, alt }) {
     }
   }
   const onLess = () => {
-    if (count <= 0) {
+    if (count <= 1) {
       setCount(count)
     } else {
       setCount(count - 1)
     }
   }
+
+  const { cart, setCart } = useContext(CartContext)
+
+  const isInCart = (item) => {
+    return cart && cart.some(element => element.item.id === item.id)
+  }
+
+  const addItem = (item, count) => {
+    let cartElement = { item, count }
+    console.log('cartelement', cartElement)
+
+    let cartAux = []
+
+    if (isInCart(item)) {
+      console.log('Esta en el carrito')
+
+      cartElement = cart.find(element => element.item.id === item.id)
+      console.log('cartelement2', cartElement)
+      cartElement.count = cartElement.count + count
+
+      cartAux = [...cart]
+    } else {
+      console.log('No esta en el carrito')
+      cartAux = [cartElement, ...cart]
+    }
+    setCart(cartAux)
+  }
+
 
 
   return (
@@ -43,7 +67,7 @@ function Producto({item, title, price, stock, img, alt }) {
         <div className="card-data scroll">
         <h3>{title}</h3>
           <p className='card-data scroll'><b>${price}</b></p>
-        <ItemCount onAdd={onAdd} onLess={onLess} onAddToCart={handleOnAdd} count={count} title={title} />
+        <ItemCount onAdd={onAdd} onLess={onLess} onAddToCart={() => addItem(item, count)} count={count} title={title} />
         </div>
       </div>
   );
