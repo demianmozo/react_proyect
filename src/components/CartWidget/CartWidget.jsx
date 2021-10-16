@@ -2,19 +2,24 @@ import './CartWidget.css';
 import React, { useContext, useState } from "react";
 
 //components
-import ItemCount from '../ItemCount/ItemCount';
 import CartDetails from '../CartDetails/CartDetails';
+import CartTotal from '../CartTotal/CartTotal';
 
 //external components
 import Button from '@material-ui/core/Button';
 
 //context 
 import CartContext from "../../context/CartContext";
-import CartTotal from '../CartTotal/CartTotal';
+import { Link } from 'react-router-dom';
 
 const CartWidget = ({show, close}) => {
 console.log(show)
-  const { cart } = useContext(CartContext)
+  const { cart, setCart } = useContext(CartContext)
+
+  const clear = () => {
+    return setCart([])
+  }
+
   return (
     <div className={`cart-widget ${show ? 'active' : ''}`}>
       <div className='cart-container'>
@@ -26,12 +31,19 @@ console.log(show)
           {console.log(cart)}
         </div>
         <div>
+          <b>Total</b>
           <CartTotal />
         </div>
         {/* <b>Total: ${cart && cart.map(element => element.item.price)}</b>
         {console.log('count es ', cart.map(element => element.item.count))} */}
       </div>
-      <Button onClick={close}>Cerrar</Button>
+      <div className='cart-btns'>
+        <ul>
+          <li><Button onClick={clear}>Vaciar</Button></li>
+          <li><Link to='/cart'><Button>Finalizar compra</Button></Link></li>
+        </ul>
+        <Button onClick={close}>Cerrar</Button>
+      </div>
     </div>
   )
 }

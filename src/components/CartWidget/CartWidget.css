@@ -23,3 +23,25 @@
     display: flex;
     flex-direction: column;
 }
+
+.cart-btns ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cart-btns ul button.MuiButtonBase-root.MuiButton-root.MuiButton-text {
+    color: inherit;
+    border-color: grey;
+    font-size: 15px;
+    line-height: normal;
+    text-transform: none;
+}
+
+.cart-btns button.MuiButtonBase-root.MuiButton-root.MuiButton-text {
+    color: inherit;
+    border-color: grey;
+    font-size: 15px;
+    line-height: normal;
+}
