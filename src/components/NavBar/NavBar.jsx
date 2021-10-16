@@ -4,7 +4,6 @@ import './NavBar.css';
 
 //components
 import logo from '../../assets/logosas.png';
-import CartIcon from '../CartIcon/CartIcon';
 import Cart from '../Cart/Cart';
 
 //external components

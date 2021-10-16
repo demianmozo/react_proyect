@@ -10,25 +10,26 @@ import Button from '@material-ui/core/Button';
 
 //context 
 import CartContext from "../../context/CartContext";
+import CartTotal from '../CartTotal/CartTotal';
 
 const CartWidget = ({show, close}) => {
 console.log(show)
-  const { cart, count } = useContext(CartContext)
+  const { cart } = useContext(CartContext)
   return (
     <div className={`cart-widget ${show ? 'active' : ''}`}>
       <div className='cart-container'>
         <h2>🛒Carrito</h2>
-        <b>Productos: {cart && cart.map(element => element.item.title)}</b>
-        <b>Total: ${cart && cart.map(element => element.item.price)}</b>
-        {console.log('count es ', count)}
-      </div>
-      <div>
-        {/* <Button onClick={clear}>Limpiar Carrito</Button>
-        <Button onClick={handleTotalPriceByItem}>Total Carrito</Button> */}
-      </div>
-      <div>
-        {cart && cart.map(element => <CartDetails {...element } />)}
-        {console.log(cart)}
+        <b>Productos</b>
+        {/* <b>Productos: {cart && cart.map(element => element.item.title)}</b> */}
+        <div>
+          {cart && cart.map(element => <CartDetails {...element} />)}
+          {console.log(cart)}
+        </div>
+        <div>
+          <CartTotal />
+        </div>
+        {/* <b>Total: ${cart && cart.map(element => element.item.price)}</b>
+        {console.log('count es ', cart.map(element => element.item.count))} */}
       </div>
       <Button onClick={close}>Cerrar</Button>
     </div>

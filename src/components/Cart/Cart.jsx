@@ -2,7 +2,6 @@ import './Cart.css';
 import { useState } from 'react';
 
 //components
-import CartIcon from '../CartIcon/CartIcon';
 import CartWidget from '../CartWidget/CartWidget';
 
 //external components
