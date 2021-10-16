@@ -6,7 +6,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import { Link } from "react-router-dom";
 
 
-function ItemCount({ onAdd, onAddToCart, onLess, count, title}) {
+function ItemCount({ onAdd, onAddToCart, onLess, onRemoveItem, count, title}) {
     
     const addToCart = () => {
         if (count > 0) {

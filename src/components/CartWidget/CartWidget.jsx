@@ -11,15 +11,15 @@ import Button from '@material-ui/core/Button';
 //context 
 import CartContext from "../../context/CartContext";
 
-const CartWidget = ({show, close, count}) => {
+const CartWidget = ({show, close}) => {
 console.log(show)
-  const { cart } = useContext(CartContext)
+  const { cart, count } = useContext(CartContext)
   return (
     <div className={`cart-widget ${show ? 'active' : ''}`}>
       <div className='cart-container'>
         <h2>🛒Carrito</h2>
         <b>Productos: {cart && cart.map(element => element.item.title)}</b>
-        <b>Total: ${Number(cart && cart.map(element => element.item.price)) * count}</b>
+        <b>Total: ${cart && cart.map(element => element.item.price)}</b>
         {console.log('count es ', count)}
       </div>
       <div>
