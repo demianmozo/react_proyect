@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button';
 //context 
 import CartContext from "../../context/CartContext";
 
-const CartWidget = ({show, close}) => {
+const CartWidget = ({show, close, count}) => {
 console.log(show)
   const { cart } = useContext(CartContext)
   return (
@@ -19,7 +19,8 @@ console.log(show)
       <div className='cart-container'>
         <h2>🛒Carrito</h2>
         <b>Productos: {cart && cart.map(element => element.item.title)}</b>
-        <b>Total: ${cart && cart.map(element => element.item.price)}</b>
+        <b>Total: ${Number(cart && cart.map(element => element.item.price)) * count}</b>
+        {console.log('count es ', count)}
       </div>
       <div>
         {/* <Button onClick={clear}>Limpiar Carrito</Button>

@@ -76,7 +76,7 @@ function ItemDetail({ id, item, title, price, stock, img, desc }) {
           <p>{desc}</p>
           <p><b>${price}</b></p>
           <p>Quedan {stock} unidades</p>
-          <ItemCount onAdd={onAdd} onLess={onLess} onAddToCart={() => addItem(item, count)} count={count} title={title} />
+          <ItemCount onAdd={onAdd} onLess={onLess} onAddToCart={() => addItem(item, count)} count={Number(count)} title={title} />
           {/* <Button onClick={() => removeItem(item)}>Quitar del carrito</Button>
           <Button onClick={() => removeOneItem(item)}>Quitar 1</Button> */}
           <Link to='/'><Button color='inherit' variant="outlined">Volver</Button></Link>
