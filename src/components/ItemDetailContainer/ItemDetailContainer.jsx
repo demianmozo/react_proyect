@@ -7,23 +7,19 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 //external components
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
+//firebase
+import db from '../../firebase'
+import { getFirestore, collection, getDocs } from 'firebase/firestore'
 
 function ItemDetailContainer() {
     const { itemTitle } = useParams()
 
+    //metodo viejo
+    /* 
     const [result, setResult] = useState([])
-
     const getItems = new Promise((resolve) => {
         setTimeout(() => {
             const mockItems = [
-                {
-                    id: '1',
-                    title: 'Tarta frutilla',
-                    price: 800,
-                    description: 'deliciosa tarta de frutilla, con crema batida y dulce de leche',
-                    img: 'TartaFrutilla.jpeg',
-                    stock: 10
-                },
                 {
                     id: '1',
                     title: 'Tarta frutilla',
@@ -107,7 +103,25 @@ function ItemDetailContainer() {
                 result.find(element => element.title === itemTitle)
             ))
     }, [])
-    
+     */
+
+    const [result, setResult] = useState([])
+
+    async function getResult(db) {
+        const productsCol = collection(db, 'products');
+        const productsSnapshot = await getDocs(productsCol);
+        const productsList = productsSnapshot.docs.map(doc => doc.data())
+        setResult(productsList)
+        return productsList;
+    }
+
+    useEffect(() => {
+        getResult(db).then(result =>
+            setResult(
+                result.find(element => element.title === itemTitle)
+            ))
+    }, [])
+
     return (
         <>
             {result.length !== 0 ? (

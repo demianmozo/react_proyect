@@ -5,10 +5,14 @@ import './ItemListContainer.css'
 //external components
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
+//firebase
+import db from '../../firebase'
+import {getFirestore, collection, getDocs} from 'firebase/firestore'
 
 function ItemListContainer() {
-    const [products, setProduct] = useState([])
-
+//metodo viejo
+/*     
+    const [products, setProducts] = useState([])
     const getProducts = new Promise((resolve) => {
         setTimeout(() => {
             const mockProducts = [
@@ -91,9 +95,25 @@ function ItemListContainer() {
 
     useEffect(() => {
         getProducts.then((res) => {
-            setProduct(res)
+            setProducts(res)
         })
     },[])
+ */
+
+    const [products, setProducts] = useState([])
+    
+    async function getProducts(db) {
+        const productsCol = collection(db, 'products');
+        const productsSnapshot = await getDocs(productsCol);
+        const productsList = productsSnapshot.docs.map(doc => doc.data())
+        setProducts(productsList)
+        return productsList;
+    }
+
+    useEffect(() => {
+        getProducts(db)
+    }, [])
+    
     
     return (
         <>

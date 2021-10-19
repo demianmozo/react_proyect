@@ -1,0 +1,17 @@
+.cart-details-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: rgb(185, 182, 182) 1px solid;
+    margin-bottom: 5px;
+}
+
+.cart-details-img img {
+    width: 4em;
+    border-radius: 10%;
+    margin: 5px;
+}
+
+.cart-details-btns span.MuiButton-label {
+    color: grey;
+}

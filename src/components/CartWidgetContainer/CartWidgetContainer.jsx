@@ -1,5 +1,5 @@
-import './Cart.css';
-import { useState } from 'react';
+import './CartWidgetContainer.css';
+import { useContext, useState } from 'react';
 
 //components
 import CartWidget from '../CartWidget/CartWidget';
@@ -8,8 +8,12 @@ import CartWidget from '../CartWidget/CartWidget';
 import Button from '@material-ui/core/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import CartContext from '../../context/CartContext';
 
-function Cart() {
+function CartWidgetContainer() {
+
+    const { cart } = useContext(CartContext)
+
     const [showCart, setShowCart] = useState(false);
 
     const handleCart = () => {
@@ -20,11 +24,11 @@ function Cart() {
         <div className='cart-buttonNav'>
             <Button variant='contained' onClick={handleCart}>
                 <FontAwesomeIcon icon={faShoppingCart} />
-                <p>2</p>
+                <p>{cart.count}</p>
             </Button>
             <CartWidget show={showCart} close={handleCart}/>
         </div>
     )
 }
 
-export default Cart;
+export default CartWidgetContainer;

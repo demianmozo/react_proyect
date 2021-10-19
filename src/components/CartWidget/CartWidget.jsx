@@ -13,7 +13,7 @@ import CartContext from "../../context/CartContext";
 import { Link } from 'react-router-dom';
 
 const CartWidget = ({show, close}) => {
-console.log(show)
+  console.log(show)
   const { cart, setCart } = useContext(CartContext)
 
   const clear = () => {
