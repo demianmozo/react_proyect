@@ -25,7 +25,6 @@ const CartWidget = ({show, close}) => {
       <div className='cart-container'>
         <h2>🛒Carrito</h2>
         <b>Productos</b>
-        {/* <b>Productos: {cart && cart.map(element => element.item.title)}</b> */}
         <div>
           {cart && cart.map(element => <CartDetails {...element} />)}
           {console.log(cart)}
@@ -34,8 +33,6 @@ const CartWidget = ({show, close}) => {
           <b>Total</b>
           <CartTotal />
         </div>
-        {/* <b>Total: ${cart && cart.map(element => element.item.price)}</b>
-        {console.log('count es ', cart.map(element => element.item.count))} */}
       </div>
       <div className='cart-btns'>
         <ul>
