@@ -13,9 +13,10 @@ import CartContext  from './context/CartContext';
 
 function App() {
   const [cart, setCart] = useState([])
+  const [totalPrice, setTotalPrice] = useState(0)
   return (
     <div className="App">
-      <CartContext.Provider value={{cart, setCart}}>
+      <CartContext.Provider value={{cart, setCart, totalPrice, setTotalPrice}}>
         <AppRouter />
       </CartContext.Provider>
     </div>

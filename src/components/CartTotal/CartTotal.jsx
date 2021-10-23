@@ -3,9 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import CartContext from "../../context/CartContext";
 
 const CartTotal = () => {
-    const { cart } = useContext(CartContext)
-
-    const [totalPrice, setTotalPrice] = useState(0)
+    const { cart, totalPrice, setTotalPrice } = useContext(CartContext)
 
     useEffect(() => {
         setTotalPrice(handleTotalPrice())
@@ -22,7 +20,7 @@ const CartTotal = () => {
         })
     }
 
-    const handleTotalPrice = () => {        
+    const handleTotalPrice = () => {
         const cartAux = handleTotalPriceByItem()
 
         const initialValue = 0
@@ -39,7 +37,7 @@ const CartTotal = () => {
 
     return (
         <div>
-            <p>${totalPrice}</p>
+            <p>$ {totalPrice}</p>
             {console.log('total ', totalPrice)}
         </div>
     )
