@@ -1,10 +1,12 @@
 
 //components
+import Contact from '../components/Contact/Contact'
+
 
 function ContactPage() {
     return (
         <>
-            <h2>Informacion de Contact</h2>
+            <Contact />
         </>
     )
 }

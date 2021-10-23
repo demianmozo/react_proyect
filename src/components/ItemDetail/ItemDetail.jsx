@@ -81,7 +81,7 @@ function ItemDetail({ id, item, title, price, stock, img, desc }) {
         <div className='item-detail-container'>
           <h3>{title}</h3>
           <p>{desc}</p>
-          <p><b>${price}</b></p>
+          <p><b>$ {price}</b></p>
           <p>Quedan {stock} unidades</p>
           <ItemCount onAdd={onAdd} onLess={onLess} onAddToCart={() => addItem(item, count)} count={count} title={title} />
           <Button onClick={() => removeItem(item)}>Quitar del carrito</Button>

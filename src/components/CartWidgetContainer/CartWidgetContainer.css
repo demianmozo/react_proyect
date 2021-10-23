@@ -1,4 +1,6 @@
-button.MuiButtonBase-root.MuiButton-root.MuiButton-contained {
+.cart-buttonNav button.MuiButtonBase-root.MuiButton-root.MuiButton-contained {
     background: rgb(252, 235, 205);
     color: inherit;
+    height: 2.5em;
 }
+

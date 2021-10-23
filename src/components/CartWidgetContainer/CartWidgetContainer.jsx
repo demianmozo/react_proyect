@@ -1,5 +1,5 @@
 import './CartWidgetContainer.css';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 //components
 import CartWidget from '../CartWidget/CartWidget';
@@ -12,7 +12,24 @@ import CartContext from '../../context/CartContext';
 
 function CartWidgetContainer() {
 
-    const { cart } = useContext(CartContext)
+    const { cart, totalCount, setTotalCount } = useContext(CartContext)
+
+    useEffect(() => {
+        setTotalCount(handleTotalCount())
+    }, [cart])
+
+    const handleTotalCount = () => {
+        const initialValue = 0
+        return (
+            cart &&
+            cart.reduce(
+                (accumulator, currentValue) => {
+                    return accumulator + currentValue.count
+                },
+                initialValue
+            )
+        )
+    }
 
     const [showCart, setShowCart] = useState(false);
 
@@ -24,7 +41,7 @@ function CartWidgetContainer() {
         <div className='cart-buttonNav'>
             <Button variant='contained' onClick={handleCart}>
                 <FontAwesomeIcon icon={faShoppingCart} />
-                <p>{cart.count}</p>
+                {totalCount > 0 && <span className='cart-count'>{totalCount}</span>}
             </Button>
             <CartWidget show={showCart} close={handleCart}/>
         </div>
