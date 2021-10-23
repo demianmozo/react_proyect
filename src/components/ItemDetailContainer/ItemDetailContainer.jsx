@@ -35,7 +35,7 @@ function ItemDetailContainer() {
         <>
             {result.length !== 0 ? (
                 <div className='detail-container'>
-                    <div>
+                    <div className='product-detail'>
                     <p><Link to='/'>Home</Link> {">"} <Link to='/'>Productos</Link> {">"} {itemTitle}</p>
                     < ItemDetail item={result} id={result.id} title={result.title} price={result.price} img={result.img} stock={result.stock} desc={result.description} />
                     </div>

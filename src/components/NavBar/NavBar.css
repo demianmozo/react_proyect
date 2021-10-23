@@ -1,3 +1,7 @@
+header {
+    margin-bottom: 5em;
+}
+
 .container-logo {
     float: left;
     width: 50px;
@@ -28,13 +32,16 @@ header > div {
 
 span.MuiLinearProgress-bar.MuiLinearProgress-barColorPrimary.MuiLinearProgress-bar1Indeterminate.css-5ir5xx-MuiLinearProgress-bar1 {
     background: burlywood;
+    height: 6px;
 }
 
 span.MuiLinearProgress-root.MuiLinearProgress-colorPrimary.MuiLinearProgress-indeterminate.css-eglki6-MuiLinearProgress-root {
     background: bisque;
+    height: 6px;
 }
 
 span.MuiLinearProgress-bar.MuiLinearProgress-barColorPrimary.MuiLinearProgress-bar2Indeterminate.css-1r8wrcl-MuiLinearProgress-bar2 {
+    height: 6px;
     background: burlywood;
 }
 

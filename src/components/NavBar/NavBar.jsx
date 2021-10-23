@@ -1,84 +1,209 @@
-import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
-import './NavBar.css';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  makeStyles,
+  Button,
+  IconButton,
+  Drawer,
+  Link,
+  MenuItem,
+  Menu,
+  Switch,
+} from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
+import React, { useState, useEffect, useContext } from "react";
+import { Link as RouterLink } from "react-router-dom";
 
-//components
-import logo from '../../assets/logosas.png';
+import Logo from '../../assets/logosas.png';
+
 import CartWidgetContainer from '../CartWidgetContainer/CartWidgetContainer';
 
-//external components
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Switch from '@mui/material/Switch';
+import './NavBar.css';
 
 //context
 import ThemeContext from '../../context/ThemeContext';
 
 
-function NavBar() {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
+const headersData = [
+  {
+    label: "Inicio",
+    href: "/",
+  },
+  {
+    label: "Productos",
+    href: "/",
+  },
+  {
+    label: "Contacto",
+    href: "/contacto",
+  },
+  {
+    label: "FAQ",
+    href: "/FAQ",
+  },
+];
+
+const useStyles = makeStyles(() => ({
+  header: {
+    backgroundColor: "rgb(252, 235, 205)",
+    paddingRight: "10px",
+    paddingLeft: "10px",
+    "@media (max-width: 900px)": {
+      paddingLeft: 0,
+    },
+  },
+  logo: {
+    fontFamily: "Work Sans, sans-serif",
+    fontWeight: 600,
+    color: "grey",
+    textAlign: "left",
+  },
+  menuButton: {
+    fontFamily: "Open Sans, sans-serif",
+    fontWeight: 700,
+    size: "18px",
+    marginLeft: "38px",
+  },
+  toolbar: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  drawerContainer: {
+    padding: "20px 30px",
+  },
+}));
+
+export default function Header() {
+  const { handleTheme } = useContext(ThemeContext)
+
+  const { header, logo, menuButton, toolbar, drawerContainer } = useStyles();
+
+  const [state, setState] = useState({
+    mobileView: false,
+    drawerOpen: false,
+  });
+
+  const { mobileView, drawerOpen } = state;
+
+  useEffect(() => {
+    const setResponsiveness = () => {
+      return window.innerWidth < 900
+        ? setState((prevState) => ({ ...prevState, mobileView: true }))
+        : setState((prevState) => ({ ...prevState, mobileView: false }));
+    };
+
+    setResponsiveness();
+
+    window.addEventListener("resize", () => setResponsiveness());
+
+    return () => {
+      window.removeEventListener("resize", () => setResponsiveness());
+    };
+  }, []);
+
+  const displayDesktop = () => {
+    return (
+      <Toolbar className={toolbar}>
+        {sasLogo}
+        <div>{getMenuButtons()}</div>
+        {navbarActions}
+      </Toolbar>
+    );
   };
 
-  const { theme, handleTheme} = useContext(ThemeContext)
-  
-  const label = { inputProps: { 'aria-label': 'Switch demo' } };
+  const displayMobile = () => {
+    const handleDrawerOpen = () =>
+      setState((prevState) => ({ ...prevState, drawerOpen: true }));
+    const handleDrawerClose = () =>
+      setState((prevState) => ({ ...prevState, drawerOpen: false }));
+
+    return (
+      <Toolbar>
+        <IconButton
+          {...{
+            edge: "start",
+            color: "inherit",
+            "aria-label": "menu",
+            "aria-haspopup": "true",
+            onClick: handleDrawerOpen,
+          }}
+        >
+          <MenuIcon />
+        </IconButton>
+
+        <Drawer
+          {...{
+            anchor: "left",
+            open: drawerOpen,
+            onClose: handleDrawerClose,
+          }}
+        >
+          <div className={drawerContainer}>{getDrawerChoices()}</div>
+        </Drawer>
+
+        <div>{sasLogo}</div>
+        {navbarActions}
+      </Toolbar>
+    );
+  };
+
+  const getDrawerChoices = () => {
+    return headersData.map(({ label, href }) => {
+      return (
+        <Link
+          {...{
+            component: RouterLink,
+            to: href,
+            color: "inherit",
+            style: { textDecoration: "none" },
+            key: label,
+          }}
+        >
+          <MenuItem>{label}</MenuItem>
+        </Link>
+      );
+    });
+  };
+
+  const sasLogo = (
+    <Typography variant="h6" component="h1" className={logo}>
+      <div className="container-logo">
+        <Link to='/'><img src={Logo} alt={"main logo"} /></Link>
+      </div>
+    </Typography>
+  );
+
+  const navbarActions = (
+    <div className='btns-container'>
+      <CartWidgetContainer />
+      <Switch onChange={handleTheme} />
+    </div>
+  )
+
+  const getMenuButtons = () => {
+    return headersData.map(({ label, href }) => {
+      return (
+        <Button
+          {...{
+            key: label,
+            color: "inherit",
+            to: href,
+            component: RouterLink,
+            className: menuButton,
+          }}
+        >
+          {label}
+        </Button>
+      );
+    });
+  };
 
   return (
-    <div>
-       <AppBar position="static" className="main-navbar">
-        <Toolbar>
-          <Typography variant="h6">
-            <div className="container-logo">
-                <Link to='/'><img src={logo} alt={"main logo"}/></Link>
-            </div>
-        </Typography>
-        <div className='container-navbar'>
-          <ul className="navbar-list">
-            <li><Link to='/'><Button color="inherit">Inicio</Button></Link></li>
-              <li><Button
-                id="basic-button"
-                aria-controls="basic-menu"
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
-              >
-                Productos
-              </Button>
-                <Menu
-                  id="basic-menu"
-                  anchorEl={anchorEl}
-                  open={open}
-                  onClose={handleClose}
-                  MenuListProps={{
-                    'aria-labelledby': 'basic-button',
-                  }}
-                >
-                  <MenuItem onClick={handleClose}>Tartas</MenuItem>
-                  <MenuItem onClick={handleClose}>Muffins y budines</MenuItem>
-                  <MenuItem onClick={handleClose}>Boxes</MenuItem>
-                </Menu></li>
-            <li><Link to='/contacto'><Button color="inherit">Contacto</Button></Link></li>
-            <li><Link to='/FAQ'><Button color="inherit">FAQ</Button></Link></li>
-        </ul>
-        </div>
-        <div className='btns-container'>
-            <CartWidgetContainer />
-          <Switch onChange={handleTheme}  />
-        </div>
-        </Toolbar>
+    <header>
+      <AppBar className={header}>
+        {mobileView ? displayMobile() : displayDesktop()}
       </AppBar>
-    </div>
+    </header>
   );
 }
-
-export default NavBar;
