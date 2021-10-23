@@ -3,6 +3,7 @@ import './AppRouter.css'
 
 //components
 import NavBar from '../components/NavBar/NavBar';
+import Footer from '../components/Footer/Footer';
 import HomePage from '../pages/HomePage/HomePage';
 import ContactPage from '../pages/ContactPage';
 import ItemDetailPage from '../pages/ItemDetailPage'
@@ -25,7 +26,8 @@ function AppRouter() {
                     <Route path="/contacto" component={ContactPage} />
                     <Route exact path="/" component={HomePage} />
                     <Route path="*" component={NotFoundPage} />
-            </Switch>
+                </Switch>
+                <Footer />
             </ThemeProvider>
         </BrowserRouter>
     );

@@ -1,0 +1,76 @@
+.footer {
+    margin-top: 3.1em;
+    display: flex;
+    width: 100%;
+    height: 15vh;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    background: rgb(252, 235, 205);
+    position: absolute;
+    font-style: italic;
+    font-family: 'Arapey', serif;
+}
+
+.footer img {
+    width: 20px;
+    margin: 3px;
+}
+
+.footer nav {
+    align-content: right;
+    margin-left: 5%;
+}
+
+.footer div form {
+    align-content: center;
+}
+
+.footer div form input {
+    background-color: #F8ECE7;
+}
+
+.footer .footer-d-u {
+    align-content: left;
+    margin-right: 5%;
+}
+
+@media screen and (max-width: 800px) {
+    .footer {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer img {
+        width: 4vw;
+    }
+
+    .footer .footer-d-u {
+        font-size: 12px;
+        margin-bottom: 2vh;
+    }
+
+    .footer .redes {
+        font-size: 12px;
+    }
+
+    .footer form label {
+        font-size: 12px;
+    }
+
+    .footer form {
+        align-content: flex-end;
+    }
+
+    .footer form input {
+        width: 50px;
+        height: 13px;
+        font-size: 10px;
+    }
+
+    .footer nav {
+        height: 30px;
+        margin: 4px;
+    }
+}
