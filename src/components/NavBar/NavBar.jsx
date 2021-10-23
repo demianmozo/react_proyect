@@ -107,7 +107,10 @@ export default function Header() {
       <Toolbar className={toolbar}>
         {sasLogo}
         <div>{getMenuButtons()}</div>
-        {navbarActions}
+        <div className='btns-container'>
+          {navbarCart}
+          {toggleDarkMode}
+        </div>
       </Toolbar>
     );
   };
@@ -140,10 +143,11 @@ export default function Header() {
           }}
         >
           <div className={drawerContainer}>{getDrawerChoices()}</div>
+          {toggleDarkMode}
         </Drawer>
 
         <div>{sasLogo}</div>
-        {navbarActions}
+        {navbarCart}
       </Toolbar>
     );
   };
@@ -174,12 +178,16 @@ export default function Header() {
     </Typography>
   );
 
-  const navbarActions = (
-    <div className='btns-container'>
+  const toggleDarkMode = (
+    <Switch onChange={handleTheme} />
+  )
+
+  const navbarCart = (
+    <div>
       <CartWidgetContainer />
-      <Switch onChange={handleTheme} />
     </div>
   )
+
 
   const getMenuButtons = () => {
     return headersData.map(({ label, href }) => {
