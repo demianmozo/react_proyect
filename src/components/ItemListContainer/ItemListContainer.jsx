@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 //components
 import Producto from "../Product/Product";
+import CategoryFilter from "../CategoryFilter/CategoryFilter";
 import './ItemListContainer.css'
 //external components
 import Box from '@mui/material/Box';
@@ -8,6 +9,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 //firebase
 import db from '../../firebase'
 import {getFirestore, collection, getDocs} from 'firebase/firestore'
+
 
 function ItemListContainer() {
 

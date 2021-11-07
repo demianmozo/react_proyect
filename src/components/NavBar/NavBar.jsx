@@ -32,7 +32,7 @@ const headersData = [
   },
   {
     label: "Productos",
-    href: "/",
+    href: "/products",
   },
   {
     label: "Contacto",
